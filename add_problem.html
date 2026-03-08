@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Dental Problem</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+
+background-image:url("{{ url_for('static', filename='img/admin.jpg') }}");
+background-size:cover;
+background-position:center;
+
+height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* CARD */
+
+.card{
+background:rgba(255,255,255,0.9);
+padding:40px;
+border-radius:20px;
+width:420px;
+
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* INPUT */
+
+input, textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+/* BUTTON */
+
+button{
+width:100%;
+padding:10px;
+background:#2f80ed;
+color:white;
+
+border:none;
+border-radius:6px;
+font-size:16px;
+
+cursor:pointer;
+}
+
+button:hover{
+background:#1c5dc9;
+}
+
+/* HOME BUTTON */
+
+.home-btn{
+position:fixed;
+top:30px;
+left:30px;
+
+padding:10px 20px;
+background:#27ae60;
+color:white;
+
+text-decoration:none;
+border-radius:6px;
+}
+
+/* BACK BUTTON */
+
+.back-btn{
+position:fixed;
+bottom:30px;
+left:30px;
+
+padding:10px 20px;
+background:#e67e22;
+color:white;
+
+text-decoration:none;
+border-radius:6px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HOME BUTTON -->
+<a href="/" class="home-btn">Home</a>
+
+<!-- BACK BUTTON -->
+<a href="/admin/dashboard" class="back-btn">← Back</a>
+
+<div class="card">
+
+<h2>Add Dental Problem</h2>
+
+<form method="POST">
+
+<input type="text" name="name" placeholder="Problem Name" required>
+
+<textarea name="symptoms" placeholder="Symptoms"></textarea>
+
+<textarea name="description" placeholder="Description"></textarea>
+
+<textarea name="causes" placeholder="Causes"></textarea>
+
+<textarea name="treatment" placeholder="Treatment"></textarea>
+
+<textarea name="prevention" placeholder="Prevention"></textarea>
+
+<input type="text" name="severity" placeholder="Severity">
+
+<button type="submit">Add Problem</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

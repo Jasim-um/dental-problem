@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Symptom Checker</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+
+background-image: url("{{ url_for('static', filename='img/symptom.jpeg') }}");
+background-size:cover;
+background-position:center;
+height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* form container */
+
+.box{
+width:260px;
+text-align:left;
+}
+
+/* heading */
+
+h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+/* checkbox row */
+
+.symptom{
+display:flex;
+align-items:center;
+gap:10px;
+margin:10px 0;
+font-size:18px;
+}
+
+/* button */
+
+button{
+display:block;
+margin:20px auto;
+padding:12px 25px;
+background:#2f80ed;
+border:none;
+color:white;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+}
+
+/* home button */
+
+.home{
+position:absolute;
+top:20px;
+left:20px;
+background:white;
+padding:8px 15px;
+border-radius:6px;
+text-decoration:none;
+color:black;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<a href="/" class="home">Home</a>
+
+<div class="box">
+
+<h2>Symptom Checker</h2>
+
+<form method="POST">
+
+<div class="symptom">
+<input type="checkbox" name="symptoms" value="tooth pain">
+<span>Tooth Pain</span>
+</div>
+
+<div class="symptom">
+<input type="checkbox" name="symptoms" value="bleeding gums">
+<span>Bleeding Gums</span>
+</div>
+
+<div class="symptom">
+<input type="checkbox" name="symptoms" value="sensitivity">
+<span>Tooth Sensitivity</span>
+</div>
+
+<div class="symptom">
+<input type="checkbox" name="symptoms" value="bad breath">
+<span>Bad Breath</span>
+</div>
+
+<button type="submit">Check Problem</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

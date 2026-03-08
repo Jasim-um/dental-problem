@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Dental Problem Detail</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+
+/* background image */
+
+background-image:url("{{ url_for('static', filename='img/symptom.jpeg') }}");
+background-size:cover;
+background-position:center;
+
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* CARD */
+
+.card{
+background:rgba(255,255,255,0.92);
+padding:40px;
+border-radius:20px;
+width:650px;
+
+box-shadow:0 5px 25px rgba(0,0,0,0.25);
+}
+
+/* TITLE */
+
+.title{
+text-align:center;
+font-size:36px;
+margin-bottom:10px;
+}
+
+/* LINE */
+
+.line{
+height:4px;
+background:black;
+margin-bottom:25px;
+}
+
+/* IMAGE */
+
+.problem-img{
+display:block;
+margin:0 auto 25px auto;
+width:220px;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* TEXT */
+
+p{
+font-size:18px;
+margin:10px 0;
+line-height:1.6;
+}
+
+/* HOME BUTTON */
+
+.home-btn{
+position:fixed;
+top:30px;
+left:30px;
+
+padding:10px 20px;
+background:#27ae60;
+color:white;
+
+text-decoration:none;
+border-radius:6px;
+
+box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+.home-btn:hover{
+background:#1e874b;
+}
+
+/* BACK BUTTON */
+
+.back-btn{
+position:fixed;
+bottom:30px;
+left:30px;
+
+padding:10px 20px;
+background:#2f80ed;
+color:white;
+
+text-decoration:none;
+border-radius:6px;
+
+box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+.back-btn:hover{
+background:#1c5dc9;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<a href="/" class="home-btn">Home</a>
+
+<a href="{{ url_for('symptom_checker') }}" class="back-btn">← Back</a>
+
+<div class="card">
+
+<h1 class="title">{{ problem.problem_name }}</h1>
+
+<div class="line"></div>
+
+<!-- IMAGE -->
+
+{% if problem.image_url %} <img class="problem-img"
+src="{{ url_for('static', filename='images/' + problem.image_url) }}">
+{% else %} <img class="problem-img"
+src="{{ url_for('static', filename='images/default_tooth.jpg') }}">
+{% endif %}
+
+<p><b>Description:</b> {{ problem.description }}</p>
+
+<p><b>Symptoms:</b> {{ problem.symptoms }}</p>
+
+<p><b>Causes:</b> {{ problem.causes }}</p>
+
+<p><b>Treatment:</b> {{ problem.treatments }}</p>
+
+<p><b>Prevention:</b> {{ problem.prevention_tips }}</p>
+
+<p><b>Severity:</b> {{ problem.severity_level }}</p>
+
+</div>
+
+</body>
+</html>
